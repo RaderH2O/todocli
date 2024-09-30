@@ -104,6 +104,9 @@ func main() {
 		fmt.Println("(a)dd/(t)oggle/(d)elete/(q)uit")
 		scanner.Scan()
 		input = scanner.Text()
+		if len(input) <= 0 {
+			continue
+		}
 
 		operation, index, err := processInput(input)
 		if err != nil {

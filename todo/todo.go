@@ -55,7 +55,3 @@ func GetTodos(input string) Todos {
 	}
 	return todos
 }
-
-// func AddTodo(todos Todos, content string, status bool) Todos {
-// 	return append(todos, Todo{Content: content, Done: status})
-// }

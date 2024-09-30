@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
+	"log"
 	"os"
 	"raderh2o/todocli/fileoperations"
 	"raderh2o/todocli/todo"
@@ -92,7 +93,9 @@ func main() {
 
 	// Initial loading
 	loaded, err := fileoperations.ReadFromFile("todo.txt")
-	check(err)
+	if err != nil {
+		log.Fatalf("ERROR: %v", err)
+	}
 
 	// Convert the file content to todo.Todos
 	todos := todo.GetTodos(loaded)

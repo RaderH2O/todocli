@@ -25,12 +25,6 @@ func (val InvalidIndex) Error() string {
 	return fmt.Sprintf("Index %d is invalid for that operation", val)
 }
 
-func check(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
 func processInput(input string) (byte, int, error) {
 	var err error = nil
 	index := 0
@@ -53,8 +47,6 @@ func executeOperation(scanner *bufio.Scanner, operation byte, index int, todos t
 		}
 
 		content := scanner.Text()
-		err := scanner.Err()
-		check(err)
 		todos = append(todos, todo.Todo{Content: content, Done: false})
 	case 't':
 		// Toggle a todo
